@@ -1,6 +1,4 @@
-# from django.shortcuts import render
 
-# Create your views here.
 from numpy import place
 import pandas as pd
 import requests
@@ -113,22 +111,7 @@ def fuel_route(request):
                 raise Exception(f"Location not found: {place}")
 
             return [location.longitude, location.latitude]
-        # def geocode(place):
-        #     url = "https://api.openrouteservice.org/geocode/search"
-        #     params = {
-        #         "api_key": settings.OPENROUTE_API_KEY,
-        #         "text": place,
-        #         "boundary.country": "USA",
-        #         "size": 1
-        #     }
-
-        #     res = requests.get(url, params=params)
-        #     data = res.json()
-
-        #     if not data["features"]:
-        #         raise Exception(f"Location not found: {place}")
-
-        #     return data["features"][0]["geometry"]["coordinates"]
+        
 
         start_coords = geocode(start)
         finish_coords = geocode(finish)
